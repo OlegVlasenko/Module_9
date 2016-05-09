@@ -98,7 +98,7 @@ class Printer {
                     Gifts.add(new Aster());
                     break;
                 case 4:
-                    Gifts.add(new Charmomile());
+                    Gifts.add(new Chamomile());
                     break;
                 case 5:
                     Gifts.add(new Rose());
