@@ -3,20 +3,20 @@ package com.company.FlowerShop;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rosebush {
+class Rosebush {
     private List<Rose> roses;
 
-    Rosebush () {
+    Rosebush() {
         this.roses = new ArrayList<>();
         this.roses.add(new Rose());
     }
 
-    Rosebush (Rose rose) {
+    Rosebush(Rose rose) {
         this.roses = new ArrayList<>();
         this.roses.add(rose);
     }
 
-    Rosebush (List<Rose> roses) {
+    Rosebush(List<Rose> roses) {
         this.roses = new ArrayList<>();
         this.roses = roses;
     }
@@ -25,7 +25,7 @@ public class Rosebush {
         return this.roses;
     }
 
-    public void addRose(Rose rose){
+    public void addRose(Rose rose) {
         this.roses.add(rose);
     }
 }

@@ -5,28 +5,25 @@ import com.company.FileDirectory.Jpeg;
 import com.company.FileDirectory.Mp3;
 import com.company.FileDirectory.Txt;
 import com.company.FlowerShop.*;
-import com.company.MusicShop.MusicInstrument;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PrimitiveIterator;
 
-public class Printer {
+class Printer {
 
-    static final int CODE_OFFSET = 11;
-    static final int V_SIZE = 73;
+    private static final int CODE_OFFSET = 11;
+    private static final int V_SIZE = 73;
 
     private static void setName(Object param, String value) {
         if (param instanceof Flower) ((Flower) param).setName(value);
         else if (param instanceof File) ((File) param).setName(value);
-        //else if (param instanceof MusicInstrument) return ((MusicInstrument) param).getName();
     }
 
     //identifying class of object using 'instanceof'
     private static String getName2(Object param) {
         if (param instanceof Flower) return ((Flower) param).getName();
         else if (param instanceof File) return ((File) param).getName();
-        else if (param instanceof MusicInstrument) return ((MusicInstrument) param).getName();
         return "";
     }
 
@@ -39,8 +36,6 @@ public class Printer {
                 return ((File) param).getName();
             case "FlowerShop":
                 return ((Flower) param).getName();
-            case "MusicShop":
-                return ((MusicInstrument) param).getName();
         }
         return "";
     }
@@ -88,7 +83,7 @@ public class Printer {
     public static void initArrayRandom(ArrayList<Object> Gifts, int count) {
         for (int i = 0; i < count; i++) {
 
-            int choose = (int) (Math.random() * 10);
+            int choose = new java.util.Random().nextInt(6);
             switch (choose) {
                 case 0:
                     Gifts.add(new Jpeg("Name" + (int) (Math.random() * 10)));
@@ -111,17 +106,8 @@ public class Printer {
                 case 6:
                     Gifts.add(new Tulip());
                     break;
-//                case 7:
-//                    Gifts.add(new Guitar());
-//                    break;
-//                case 8:
-//                    Gifts.add(new Piano());
-//                    break;
-//                case 9:
-//                    Gifts.add(new Trumpet());
-//                    break;
-//                default:
-//                    System.out.println("cant find " + choose);
+                default:
+                    System.out.println("cant find " + choose);
             }
         }
 
@@ -133,13 +119,13 @@ public class Printer {
         }
     }
 
-    static private String encodeValue(String input){
+    static private String encodeValue(String input) {
 
         StringBuilder res = new StringBuilder();
 
         PrimitiveIterator.OfInt cpIterator = input.codePoints().iterator();
 
-        while(cpIterator.hasNext()){
+        while (cpIterator.hasNext()) {
             int cp = cpIterator.next();
             res.appendCodePoint('1' + Math.floorMod(cp - '1' + CODE_OFFSET, V_SIZE));
         }
@@ -153,13 +139,13 @@ public class Printer {
         }
     }
 
-    static private String decodeValue(String input){
+    static private String decodeValue(String input) {
 
         StringBuilder res = new StringBuilder();
 
         PrimitiveIterator.OfInt cpIterator = input.codePoints().iterator();
 
-        while(cpIterator.hasNext()){
+        while (cpIterator.hasNext()) {
             int cp = cpIterator.next();
             res.appendCodePoint('1' + Math.floorMod(cp - '1' - CODE_OFFSET, V_SIZE));
         }

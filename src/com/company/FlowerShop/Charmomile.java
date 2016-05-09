@@ -5,8 +5,4 @@ public class Charmomile extends Flower {
         super("Charmomile");
     }
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
 }

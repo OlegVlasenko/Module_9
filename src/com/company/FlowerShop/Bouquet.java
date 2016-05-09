@@ -3,16 +3,14 @@ package com.company.FlowerShop;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bouqet {
-    private List<Flower> parts;
+class Bouquet {
+    private List<Flower> parts = new ArrayList<>();
 
-    public Bouqet ( Flower flower){
-        this.parts = new ArrayList<>();
-        this.parts.add( flower );
+    public Bouquet(Flower flower) {
+        this.parts.add(flower);
     }
 
-    public Bouqet (List<Flower> parts) {
-        this.parts = new ArrayList<>();
+    public Bouquet(List<Flower> parts) {
         this.parts = parts;
     }
 

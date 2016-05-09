@@ -2,15 +2,14 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) {
 
+        final int ARRAY_SIZE = 25;
         ArrayList<Object> Gifts = new ArrayList<>();
 
-        Printer.initArrayRandom(Gifts, 25);
-
-        //for (Object Item: Gifts ) System.out.println("Obj : " + Item);
+        Printer.initArrayRandom(Gifts, ARRAY_SIZE);
 
         System.out.println("Random ArrayList before encode :");
         Printer.printClass(Gifts);
@@ -25,5 +24,5 @@ public class Main {
 
         Printer.printClass(Gifts);
 
-     }
+    }
 }
